@@ -1,4 +1,4 @@
-package com.squirrel.realtor.realtorapi;
+package com.squirrel.realtor.api;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
