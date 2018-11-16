@@ -1,4 +1,4 @@
-package com.squirrel.realtor.api;
+package com.squirrel.realtor.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
