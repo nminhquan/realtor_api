@@ -1,4 +1,4 @@
-package com.squirrel.realtor.api;
+package com.squirrel.realtor.api.unit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class RealtorApiApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	public void testApplication() {
+		System.out.println("This is Test");
 	}
-
 }
