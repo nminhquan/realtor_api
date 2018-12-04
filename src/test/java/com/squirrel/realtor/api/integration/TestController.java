@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Component
 class TestBean {
-    public String beanName = "Test Bean Name";
+    public String beanName = "This is a Test Bean Name";
 }
 
 @RestController

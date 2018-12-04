@@ -1,6 +1,7 @@
 package com.squirrel.realtor.api.service.house;
 
-import com.squirrel.realtor.api.dao.HouseRepository;
+import com.squirrel.realtor.api.dao.house.HouseDAO;
+import com.squirrel.realtor.api.dao.house.HouseRepository;
 import com.squirrel.realtor.api.model.dto.House;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,6 +17,9 @@ public class HouseServiceImpl implements HouseService {
     @Autowired
     HouseRepository houseRepository;
 
+    @Autowired
+    HouseDAO houseDAO;
+
     @Override
     public House addAHouse(@ModelAttribute House s) {
         return houseRepository.save(s);
@@ -24,6 +28,11 @@ public class HouseServiceImpl implements HouseService {
     @Override
     public List<House> getHouseByAddress(String address) {
         return houseRepository.findByAddress(address);
+    }
+
+    @Override
+    public List<House> getNearbyHouses(String address) {
+        return houseDAO.searchNearByHouse(address);
     }
 
 }
