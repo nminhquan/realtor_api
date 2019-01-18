@@ -1,7 +1,7 @@
 package com.squirrel.realtor.api.unit;
 
 import com.squirrel.realtor.api.dao.house.HouseDAO;
-import com.squirrel.realtor.api.dao.house.HouseRepository;
+import com.squirrel.realtor.api.dao.house.mysql.HouseRepository;
 import com.squirrel.realtor.api.model.dto.House;
 import org.junit.Test;
 import org.junit.runner.RunWith;

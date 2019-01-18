@@ -1,4 +1,4 @@
-package com.squirrel.realtor.api.controller.user;
+package com.squirrel.realtor.api.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

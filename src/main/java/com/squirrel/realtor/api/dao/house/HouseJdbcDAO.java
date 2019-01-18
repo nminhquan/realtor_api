@@ -1,5 +1,6 @@
 package com.squirrel.realtor.api.dao.house;
 
+import com.squirrel.realtor.api.dao.house.mysql.HouseRepository;
 import com.squirrel.realtor.api.model.dto.House;
 import com.squirrel.realtor.api.model.dto.RowMapper.HouseRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

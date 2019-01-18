@@ -16,7 +16,7 @@ public class HouseRowMapper implements RowMapper<House> {
         house.setBedrooms(resultSet.getInt("bedrooms"));
         house.setBuilderName(resultSet.getString("builderName"));
         house.setOwnerName(resultSet.getString("ownerName"));
-        house.setHouseId(resultSet.getLong("houseId"));
+        house.setHouseId(resultSet.getString("houseId"));
         house.setSqft(resultSet.getFloat("sqft"));
         return house;
     }
