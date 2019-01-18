@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class SearchController {
-    static final Double MAX_DISTANCE = 0.1;
 
     @Autowired
     SearchService searchService;
@@ -25,8 +24,9 @@ public class SearchController {
     @GetMapping(value = "/api/search", produces = "application/json;charset=utf-8")
     @ResponseBody
     public List<House> searchNearByHouses(@RequestParam(name = "lat") Double lat,
-                                            @RequestParam(name = "lon") Double lon) {
-        List<House> listHouse = searchService.searchNearByHouse(lat, lon, MAX_DISTANCE);
+                                            @RequestParam(name = "lon") Double lon,
+                                          @RequestParam(name = "distance") Double distance) {
+        List<House> listHouse = searchService.searchNearByHouse(lat, lon, distance);
         return listHouse;
     }
 }
