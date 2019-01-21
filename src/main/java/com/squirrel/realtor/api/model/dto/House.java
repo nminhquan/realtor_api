@@ -4,6 +4,7 @@ import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
@@ -18,13 +19,18 @@ public class House {
     @Id
     private String houseId;
 
-    @Indexed
+    @TextIndexed
     private String address;
+
+    @TextIndexed
     private String ownerName;
+
+    @TextIndexed
     private String builderName;
     private int bedrooms;
     private int bathrooms;
-    private float sqft;
+    private double sqft;
+    private double price;
     private String agentId;
     private Location location;
 }

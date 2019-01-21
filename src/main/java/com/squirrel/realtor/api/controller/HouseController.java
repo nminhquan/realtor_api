@@ -25,7 +25,7 @@ public class HouseController {
                           @RequestParam("builderName") String builderName,
                           @RequestParam("bedrooms") int bedrooms,
                           @RequestParam("bathrooms") int bathrooms,
-                          @RequestParam("sqft") float sqft,
+                          @RequestParam("sqft") double sqft,
                           @RequestParam("agentId") String agentId,
                           @RequestParam("coordinates") Double[] coordinates) {
         return houseService.addAHouse(

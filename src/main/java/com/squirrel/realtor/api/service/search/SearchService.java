@@ -8,6 +8,6 @@ import java.util.List;
 
 @Service
 public interface SearchService {
-    List<House> searchHouseByAddress(String address);
-    List<House> searchNearByHouse(Double lat, Double lon, Double dist);
+    List<House> searchHouse(String text, int bedrooms, int bathrooms, double sqft, double price) ;
+    List<House> searchNearByHouse(double lat, double lon, double dist);
 }
