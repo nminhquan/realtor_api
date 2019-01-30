@@ -1,8 +1,8 @@
 package com.squirrel.realtor.api.unit;
 
-import com.squirrel.realtor.api.dao.house.HouseDAO;
-import com.squirrel.realtor.api.dao.house.mysql.HouseRepository;
-import com.squirrel.realtor.api.model.dto.House;
+import com.squirrel.realtor.api.dao.HouseDAO;
+import com.squirrel.realtor.api.dao.mysql.HouseRepository;
+import com.squirrel.realtor.api.dto.mysql.House;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

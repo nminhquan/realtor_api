@@ -1,9 +1,7 @@
 package com.squirrel.realtor.api.service.search;
 
-import com.squirrel.realtor.api.dao.house.HouseDAO;
-import com.squirrel.realtor.api.dao.house.mongo.HouseMongoRepository;
-import com.squirrel.realtor.api.model.dto.House;
-import com.squirrel.realtor.api.model.dto.Location;
+import com.squirrel.realtor.api.dao.mongo.HouseMongoRepository;
+import com.squirrel.realtor.api.dto.House;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.geo.Distance;

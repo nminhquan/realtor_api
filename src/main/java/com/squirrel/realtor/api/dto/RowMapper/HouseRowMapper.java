@@ -1,6 +1,6 @@
-package com.squirrel.realtor.api.model.dto.RowMapper;
+package com.squirrel.realtor.api.dto.RowMapper;
 
-import com.squirrel.realtor.api.model.dto.House;
+import com.squirrel.realtor.api.dto.mysql.House;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ public class HouseRowMapper implements RowMapper<House> {
         house.setBedrooms(resultSet.getInt("bedrooms"));
         house.setBuilderName(resultSet.getString("builderName"));
         house.setOwnerName(resultSet.getString("ownerName"));
-        house.setHouseId(resultSet.getString("houseId"));
+        house.setHouseId(resultSet.getLong("houseId"));
         house.setSqft(resultSet.getDouble("sqft"));
         return house;
     }

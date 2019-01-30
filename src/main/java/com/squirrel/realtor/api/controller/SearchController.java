@@ -1,6 +1,6 @@
 package com.squirrel.realtor.api.controller;
 
-import com.squirrel.realtor.api.model.dto.House;
+import com.squirrel.realtor.api.dto.House;
 import com.squirrel.realtor.api.service.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

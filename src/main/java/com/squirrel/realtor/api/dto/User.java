@@ -1,4 +1,4 @@
-package com.squirrel.realtor.api.model.dto;
+package com.squirrel.realtor.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

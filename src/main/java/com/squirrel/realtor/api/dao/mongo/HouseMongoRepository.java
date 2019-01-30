@@ -1,6 +1,6 @@
-package com.squirrel.realtor.api.dao.house.mongo;
+package com.squirrel.realtor.api.dao.mongo;
 
-import com.squirrel.realtor.api.model.dto.House;
+import com.squirrel.realtor.api.dto.House;
 import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;

@@ -2,7 +2,7 @@ package com.squirrel.realtor.api.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.squirrel.realtor.api.model.dto.User;
+import com.squirrel.realtor.api.dto.User;
 import com.squirrel.realtor.api.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

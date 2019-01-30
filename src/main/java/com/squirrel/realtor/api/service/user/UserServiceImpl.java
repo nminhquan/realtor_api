@@ -1,6 +1,6 @@
 package com.squirrel.realtor.api.service.user;
 
-import com.squirrel.realtor.api.model.dto.User;
+import com.squirrel.realtor.api.dto.User;
 import org.springframework.stereotype.Service;
 
 @Service

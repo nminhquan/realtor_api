@@ -2,8 +2,8 @@ package com.squirrel.realtor.api.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.squirrel.realtor.api.model.dto.House;
-import com.squirrel.realtor.api.model.dto.Location;
+import com.squirrel.realtor.api.dto.mysql.House;
+import com.squirrel.realtor.api.dto.Location;
 import com.squirrel.realtor.api.service.house.HouseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,19 +49,19 @@ public class HouseController {
     }
 
     @GetMapping(value = "/api/house/{id}", produces = "application/json;charset=utf-8")
-    public String getHouseById(@PathVariable(name = "id") String id) throws JsonProcessingException {
+    public String getHouseById(@PathVariable(name = "id") long id) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(houseService.getHouseById(id).get());
     }
 
     @DeleteMapping(value = "/api/house/{id}", produces = "application/json;charset=utf-8")
-    public void deleteHouseById(@PathVariable(name = "id") String id) {
+    public void deleteHouseById(@PathVariable(name = "id") long id) {
         houseService.removeHouse(id);
     }
 
     @PutMapping(value = "/api/house/{id}", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public House updateHouse(@PathVariable("id") String id, @RequestParam("address") String address) {
+    public House updateHouse(@PathVariable("id") long id, @RequestParam("address") String address) {
         House updatedHouse = null;
         try {
             updatedHouse = houseService.updateHouseAddress(id, address);

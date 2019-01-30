@@ -1,7 +1,6 @@
 package com.squirrel.realtor.api.service.search;
 
-import com.squirrel.realtor.api.model.dto.House;
-import com.squirrel.realtor.api.model.dto.Location;
+import com.squirrel.realtor.api.dto.House;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

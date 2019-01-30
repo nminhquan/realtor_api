@@ -1,7 +1,7 @@
 package com.squirrel.realtor.api.unit;
 
-import com.squirrel.realtor.api.dao.house.mongo.HouseMongoRepository;
-import com.squirrel.realtor.api.model.dto.House;
+import com.squirrel.realtor.api.dao.mongo.HouseMongoRepository;
+import com.squirrel.realtor.api.dto.House;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
