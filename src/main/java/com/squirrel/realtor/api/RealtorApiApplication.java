@@ -7,5 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RealtorApiApplication {
     public static void main(String[] args) {
             SpringApplication.run(RealtorApiApplication.class, args);
+            //comment
     }
 }
