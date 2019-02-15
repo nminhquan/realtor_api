@@ -16,9 +16,14 @@ public class HouseDAOImpl implements HouseDAO {
     HouseRepository houseRepository;
 
     @Override
-    public List<House> searchNearByHouse(String address) {
+    public List<House> searchNearByHouse(double lat, double lng, double distance) {
         // We can use either jdbctemplate or houseRepository
-        List<House> list = jdbcTemplate.query("select * from house where address like ?", new Object[] {address}, new HouseRowMapper());
+        List<House> list = jdbcTemplate.query(
+                "select *, \n" +
+                        "ST_Distance_Sphere(pos, ST_GeomFromText('POINT(" + lat + " " + lng + ")')) as distance\n" +
+                        "from House\n" +
+                        "having distance < ?"
+                , new Object[] {distance}, new HouseRowMapper());
         return list;
     }
 }

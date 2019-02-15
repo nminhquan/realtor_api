@@ -18,5 +18,8 @@ public class House {
     private String builderName;
     private int bedrooms;
     private int bathrooms;
+    private double latitude;
+    private double longitude;
+    private double price;
     private float sqft;
 }

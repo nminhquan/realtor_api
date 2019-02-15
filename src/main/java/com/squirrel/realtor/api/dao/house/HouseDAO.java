@@ -5,5 +5,5 @@ import com.squirrel.realtor.api.model.dto.House;
 import java.util.List;
 
 public interface HouseDAO {
-    List<House> searchNearByHouse(String address);
+    List<House> searchNearByHouse(double lat, double lng, double distance);
 }

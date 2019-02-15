@@ -15,7 +15,7 @@ public class SearchServiceImpl implements SearchService {
     HouseDAO houseDAO;
 
     @Override
-    public List<House> searchHouseByAddress(String address) {
-        return houseDAO.searchNearByHouse(address);
+    public List<House> searchHouseByAddress(double lat, double lng, double dist) {
+        return houseDAO.searchNearByHouse(lat, lng, dist);
     }
 }

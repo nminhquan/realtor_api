@@ -28,7 +28,7 @@ public class JDBCTemplateTest {
 
     @Test
     public void daoTest() {
-        List<House> ls = houseDAO.searchNearByHouse("%Gibson%");
+        List<House> ls = houseDAO.searchNearByHouse(10, 20, 30);
         System.out.println(ls);
         assert (ls.size() >= 0);
     }

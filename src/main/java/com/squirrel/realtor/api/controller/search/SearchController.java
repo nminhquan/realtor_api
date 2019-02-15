@@ -16,8 +16,10 @@ public class SearchController {
 
     @GetMapping(value = "/api/search", produces = "application/json;charset=utf-8")
     @ResponseBody
-    public List<House> searchHouseAndNearBy(@RequestParam(name = "address", required = false) String address) {
-        List<House> listHouse = searchService.searchHouseByAddress(address);
+    public List<House> searchHouseAndNearBy(@RequestParam(name = "lat") double lat,
+                                            @RequestParam(name = "lng") double lng,
+                                            @RequestParam(name = "dist") double dist) {
+        List<House> listHouse = searchService.searchHouseByAddress(lat, lng, dist);
         return listHouse;
     }
 }

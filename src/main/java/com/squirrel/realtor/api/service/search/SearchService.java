@@ -7,5 +7,5 @@ import java.util.List;
 
 @Service
 public interface SearchService {
-    List<House> searchHouseByAddress(String address);
+    List<House> searchHouseByAddress(double lat, double lng, double dist);
 }

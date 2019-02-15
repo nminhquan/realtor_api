@@ -13,8 +13,6 @@ import java.util.List;
 @Service
 public class HouseServiceImpl implements HouseService {
     @Autowired
-    JdbcTemplate jdbcTemplate;
-    @Autowired
     HouseRepository houseRepository;
 
     @Autowired
@@ -31,8 +29,8 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public List<House> getNearbyHouses(String address) {
-        return houseDAO.searchNearByHouse(address);
+    public List<House> getNearbyHouses(double lat, double lng, double distance) {
+        return houseDAO.searchNearByHouse(lat, lng, distance);
     }
 
 }

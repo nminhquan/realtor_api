@@ -18,6 +18,8 @@ public class HouseRowMapper implements RowMapper<House> {
         house.setOwnerName(resultSet.getString("ownerName"));
         house.setHouseId(resultSet.getLong("houseId"));
         house.setSqft(resultSet.getFloat("sqft"));
+        house.setLatitude(resultSet.getDouble("latitude"));
+        house.setLongitude(resultSet.getDouble("longitude"));
         return house;
     }
 }

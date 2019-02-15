@@ -8,8 +8,10 @@ CREATE TABLE House(
 	bedrooms INT,
 	bathrooms INT,
 	sqft DECIMAL,
-	lattitude DECIMAL(10, 8) NOT NULL,
+	latitude DECIMAL(10, 8) NOT NULL,
     longitude DECIMAL(11, 8) NOT NULL,
+    pos POINT NOT NULL,
+    price DECIMAL(10) NOT NULL,
 	PRIMARY KEY(houseId)
 );
 
@@ -146,20 +148,20 @@ INSERT INTO Agent (agentId, firstName, lastName, phone, firmId, licenseNumber)
 VALUES(310, 'Hugh', 'Grant', '132145639', 230754, 'abc10');
 
 /* 5 records into House */
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
-VALUES('2350 Gibson Road', 'John Smith', 'ABC Con', 3, 2, 196, -73.856077, 40.848447);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, latitude, longitude, pos, price)
+VALUES('2350 Gibson Road', 'John Smith', 'ABC Con', 3, 2, 196, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'), 1000000);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
-VALUES('197 Watson Street', 'Raymond Chou', 'ABC Con', 2, 4, 203, -73.856077, 40.848447);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, latitude, longitude, pos,  price)
+VALUES('197 Watson Street', 'Raymond Chou', 'ABC Con', 2, 4, 203, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'), 1000000);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
-VALUES('2525 Pottsdamer Street', 'Jim Lee', 'ABC Con', 2, 3, 180, -73.856077, 40.848447);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, latitude, longitude, pos,  price)
+VALUES('2525 Pottsdamer Street', 'Jim Lee', 'ABC Con', 2, 3, 180, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'), 1000000);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
-VALUES('193 Love BLVD', 'Kim Abudal', 'ABC Con', 3, 2, 401, -73.856077, 40.848447);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, latitude, longitude, pos,  price)
+VALUES('193 Love BLVD', 'Kim Abudal', 'ABC Con', 3, 2, 401, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'), 1000000);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
-VALUES('647 Maston Road', 'Robert Clue', 'ABC Con', 3, 2, 102, -73.856077, 40.848447);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, latitude, longitude, pos,  price)
+VALUES('647 Maston Road', 'Robert Clue', 'ABC Con', 3, 2, 102, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'), 1000000);
 
 /* 10 records into Listing */
 INSERT INTO HouseAgentListing (agentId, houseId, price)
