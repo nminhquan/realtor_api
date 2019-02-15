@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class HouseJdbcDAO implements HouseDAO {
+public class HouseDAOImpl implements HouseDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
     @Autowired

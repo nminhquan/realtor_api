@@ -1,4 +1,5 @@
 /* create tables of attributes */
+DROP TABLE IF EXISTS House;
 CREATE TABLE House(
 	houseId INT auto_increment NOT NULL,
 	address VARCHAR(50) NOT NULL,
@@ -6,17 +7,21 @@ CREATE TABLE House(
     builderName VARCHAR(30),
 	bedrooms INT,
 	bathrooms INT,
-	sqft FLOAT,
+	sqft DECIMAL,
+	lattitude DECIMAL(10, 8) NOT NULL,
+    longitude DECIMAL(11, 8) NOT NULL,
 	PRIMARY KEY(houseId)
 );
 
+DROP TABLE IF EXISTS HouseGeo;
 CREATE TABLE HouseGeo(
 	houseId INT NOT NULL,
-    lattitude FLOAT NOT NULL,
-    longitude FLOAT NOT NULL
+    lattitude DECIMAL NOT NULL,
+    longitude DECIMAL NOT NULL
     -- FOREIGN KEY(houseId) REFERENCES House(houseId)
 );
 
+DROP TABLE IF EXISTS Agent;
 CREATE TABLE Agent(
 	agentId INT auto_increment NOT NULL,
 	firstName VARCHAR(30),
@@ -31,6 +36,7 @@ CREATE TABLE Agent(
 	-- FOREIGN KEY(firmId) REFERENCES Firm(id)
 );
 
+DROP TABLE IF EXISTS Firm;
 CREATE TABLE Firm(
 	id INT NOT NULL,
 	name VARCHAR(30),
@@ -38,6 +44,7 @@ CREATE TABLE Firm(
 	PRIMARY KEY(id)
 );
 
+DROP TABLE IF EXISTS HouseAgentListing;
 CREATE TABLE HouseAgentListing(
 	houseId INT NOT NULL,
 	agentId INT NOT NULL,
@@ -47,6 +54,7 @@ CREATE TABLE HouseAgentListing(
 	-- FOREIGN KEY(address) REFERENCES Property(address)
 );
 
+DROP TABLE IF EXISTS Buyer;
 CREATE TABLE Buyer(
 	buyerId INT NOT NULL,
 	firstName VARCHAR(30),
@@ -57,6 +65,7 @@ CREATE TABLE Buyer(
 	PRIMARY KEY(buyerId)
 );
 
+DROP TABLE IF EXISTS Owner;
 CREATE TABLE `Owner`(
 	ownerId INT NOT NULL,
 	firstName VARCHAR(30),
@@ -67,7 +76,7 @@ CREATE TABLE `Owner`(
 	PRIMARY KEY(ownerId)
 );
 
-
+DROP TABLE IF EXISTS BuyerAgent;
 CREATE TABLE BuyerAgent(
 	buyerId INT,
 	agentId INT
@@ -75,6 +84,7 @@ CREATE TABLE BuyerAgent(
 	-- FOREIGN KEY(agentId) REFERENCES Agent(agentId)
 );
 
+DROP TABLE IF EXISTS OwenerAgent;
 CREATE TABLE OwenerAgent(
 	ownerId INT,
 	agentId INT
@@ -136,20 +146,20 @@ INSERT INTO Agent (agentId, firstName, lastName, phone, firmId, licenseNumber)
 VALUES(310, 'Hugh', 'Grant', '132145639', 230754, 'abc10');
 
 /* 5 records into House */
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft)
-VALUES('2350 Gibson Road', 'John Smith', '', 3, 2, 196);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
+VALUES('2350 Gibson Road', 'John Smith', 'ABC Con', 3, 2, 196, -73.856077, 40.848447);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft)
-VALUES('197 Watson Street', 'Raymond Chou', '', 2, 4, 203);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
+VALUES('197 Watson Street', 'Raymond Chou', 'ABC Con', 2, 4, 203, -73.856077, 40.848447);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft)
-VALUES('2525 Pottsdamer Street', 'Jim Lee', '', 2, 3, 180);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
+VALUES('2525 Pottsdamer Street', 'Jim Lee', 'ABC Con', 2, 3, 180, -73.856077, 40.848447);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft)
-VALUES('193 Love BLVD', 'Kim Abudal', '', 3, 2, 401);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
+VALUES('193 Love BLVD', 'Kim Abudal', 'ABC Con', 3, 2, 401, -73.856077, 40.848447);
 
-INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft)
-VALUES('647 Maston Road', 'Robert Clue', '', 3, 2, 102);
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude)
+VALUES('647 Maston Road', 'Robert Clue', 'ABC Con', 3, 2, 102, -73.856077, 40.848447);
 
 /* 10 records into Listing */
 INSERT INTO HouseAgentListing (agentId, houseId, price)
@@ -168,39 +178,20 @@ INSERT INTO HouseAgentListing(agentId, houseId, price)
 VALUES(145, 5, 118000);
 
 /* 6 records into Buyer */
-INSERT INTO Buyer
-VALUES(799, 'John Nay', '125345790', 'house', 3, 2, 'not applied', 100000, 635000);
+INSERT INTO Buyer(buyerId, firstName, lastName, phone, address, email)
+VALUES(799, 'John', 'Nay', '125345790', 'address 1', 'not applied');
 
 INSERT INTO Buyer
-VALUES(801, 'Retina Grey', '146345790', 'house', 3, 2, 'not applied', 100000, 400000);
+VALUES(801, 'Retina', 'Grey', '146345790', 'address 2', 'not applied');
 
 INSERT INTO Buyer
-VALUES(813, 'Reg Neal', '189345791', 'house', 2, 3, 'not applied', 300000, 635000);
+VALUES(813, 'Reg', 'Neal', '189345791', 'address 3', 'not applied');
 
 INSERT INTO Buyer
-VALUES(845, 'Gena Sarah', '789345790', 'house', 3, 2, 'not applied', 200000, 960000);
+VALUES(845, 'Gena', 'Sarah', '789345790', 'address 4', 'not applied');
 
 INSERT INTO Buyer
-VALUES(875, 'Bill Clay', '888345798', 'not applied', 0, 0, 'office space', 100000, 900000);
+VALUES(875, 'Bill', 'Clay', '888345798', 'address 5', 'office space');
 
 INSERT INTO Buyer
-VALUES(999, 'Hilton Clag', '999345792', 'not applied', 0, 0, 'office space', 300000, 790000);
-
-/* 6 records into Works_With */
-INSERT INTO Work_With
-VALUES(799, 100);
-
-INSERT INTO Work_With
-VALUES(801, 145);
-
-INSERT INTO Work_With
-VALUES(813, 123);
-
-INSERT INTO Work_With
-VALUES(845, 168);
-
-INSERT INTO Work_With
-VALUES(875, 189);
-
-INSERT INTO Work_With
-VALUES(999, 223);
+VALUES(999, 'Hilton', 'Clag', '999345792', 'address 6', 'office space');
