@@ -20,7 +20,7 @@ public class HouseDAOImpl implements HouseDAO {
         // We can use either jdbctemplate or houseRepository
         List<House> list = jdbcTemplate.query(
                 "select *, \n" +
-                        "ST_Distance_Sphere(pos, ST_GeomFromText('POINT(" + lat + " " + lng + ")')) as distance\n" +
+                        "ST_Distance_Sphere(pos, ST_GeomFromText('POINT(" + lng + " " + lat + ")')) as distance\n" +
                         "from House\n" +
                         "having distance < ?"
                 , new Object[] {distance}, new HouseRowMapper());
