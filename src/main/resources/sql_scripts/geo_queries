@@ -1,0 +1,21 @@
+select ST_GeomFromText('POINT(0.13 51.5)');
+
+SELECT ST_Distance_Sphere(ST_GeomFromText('POINT(0.13 51.5)'), ST_GeomFromText('POINT(122.4 37.8)')) as distance, 1 as others
+from dual
+having others = 1
+
+select ST_Distance_Sphere(ST_GeomFromText('POINT(0.13 51.5)'), ST_GeomFromText('POINT(122.4 37.8)'))
+
+INSERT INTO House(address, ownerName, builderName, bedrooms, bathrooms, sqft, lattitude, longitude, pos)
+VALUES('2350 Gibson Road', 'John Smith', 'ABC Con', 3, 2, 196, -73.856077, 40.848447, ST_GeomFromText('POINT(-73.856077 40.848447)'));
+
+select *, 
+ST_Distance_Sphere(pos, ST_GeomFromText('POINT(10.0 200.0)')) as distance
+from House
+having distance < 100
+
+select ST_Latitude(ST_GeomFromText('POINT(10.0 89.0)'))
+
+select *, ST_Distance_Sphere(pos, ST_GeomFromText('POINT(100.0 90.0)')) as distance
+from House
+
